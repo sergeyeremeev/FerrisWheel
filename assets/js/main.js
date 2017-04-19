@@ -1,8 +1,23 @@
-(function ($, global, document, undefined) {
+;(function ($, global, document, undefined) {
     'use strict';
 
-    global.ferrisWheel = function () {
+    function FerrisWheel(element, options) {
+
+        this.$element = $(element);
+        this.options = $.extend({}, options);
+
+        this.setup();
+        this.initialize();
+    }
+
+    FerrisWheel.prototype.setup = function () {
+        var elementWidth;
+
+        elementWidth = this.$element.children().width();
+    };
+
+    FerrisWheel.prototype.initialize = function () {
 
     };
 
-})(Zepto || jQuery, window, document);
+})(window.Zepto || window.jQuery, window, document);
