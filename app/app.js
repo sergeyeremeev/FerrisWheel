@@ -1,0 +1,1 @@
+import styles from './assets/css/style.css';

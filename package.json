@@ -1,0 +1,37 @@
+{
+  "name": "ferris_wheel",
+  "version": "1.0.0",
+  "description": "Ferris Wheel carousel plugin",
+  "main": "index.js",
+  "dependencies": {
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "webpack": "^2.4.1"
+  },
+  "devDependencies": {
+    "postcss-loader": "^1.3.3",
+    "style-loader": "^0.16.1"
+  },
+  "scripts": {
+    "test": "npm start",
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeyeremeev/FerrisWheel.git"
+  },
+  "keywords": [
+    "carousel",
+    "plugin",
+    "javascript",
+    "ferris",
+    "wheel",
+    "ferriswheel"
+  ],
+  "author": "Sergey Eremeev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergeyeremeev/FerrisWheel/issues"
+  },
+  "homepage": "https://github.com/sergeyeremeev/FerrisWheel#readme"
+}
