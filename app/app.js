@@ -1,1 +1,5 @@
-import styles from './assets/css/style.css';
+// CSS imports
+import 'normalize.css';
+import './assets/css/main.css';
+
+// JS imports
