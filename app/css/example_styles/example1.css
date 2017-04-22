@@ -1,0 +1,41 @@
+/* full-width carousel with card-like elements and set dimensions for each element */
+body {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* single item styles */
+.carousel-item {
+    width: 483px;
+    height: 483px;
+    background: url(./img/carousel_bg.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    &__icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 30px;
+    }
+
+    &__text {
+        font-family: Georgia, serif;
+        color: orange;
+        width: 75%;
+        margin-bottom: 30px;
+        line-height: 1.2;
+        font-size: 26px;
+        text-align: center;
+    }
+
+    &__caption {
+        font-size: 15px;
+        color: #333;
+    }
+}

@@ -1,5 +1,5 @@
 // CSS imports
-import 'normalize.css';
-import './assets/css/main.css';
+import './app.css';
 
 // JS imports
+import './js/main';

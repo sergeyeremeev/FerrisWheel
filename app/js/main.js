@@ -1,3 +1,5 @@
+var jQuery = require('jquery');
+
 ;(function ($, global, document, undefined) {
     'use strict';
 
@@ -5,10 +7,6 @@
         result = result || {};
 
         for (var i = 0; i < arguments.length; i++) {
-            // if (!arguments[i]) {
-            //     continue;
-            // }
-
             if (arguments[i]) {
                 for (var key in arguments[i]) {
                     if (arguments[i].hasOwnProperty(key)) {
@@ -139,7 +137,7 @@
         });
     };
 
-})(window.jQuery, window, document);
+})(jQuery, window, document);
 
 // Initialize our script for testing
 ;(function ($) {
@@ -148,4 +146,4 @@
         $('.target-element').ferrisWheel();
     });
 
-})(window.jQuery);
+})(jQuery);

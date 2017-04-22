@@ -2,12 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, './app'),
     entry: './app.js',
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, './dist/assets/'),
+        publicPath: 'assets',
         filename: 'bundle.js'
     },
     module: {
@@ -20,7 +22,8 @@ module.exports = {
                         {
                             loader: 'css-loader',
                             options: {
-                                importLoaders: 1
+                                importLoaders: 1,
+                                url: false
                             }
                         },
                         {
@@ -33,5 +36,11 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({filename: 'style.css', allChunks: false}),
-    ]
+        //new StyleLintPlugin()
+    ],
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        port: 9000,
+        inline: true
+    }
 };

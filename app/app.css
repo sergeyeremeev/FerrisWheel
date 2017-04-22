@@ -1,0 +1,7 @@
+@import '~normalize.css';
+
+/* actual plugin styles */
+@import './css/FerrisCarousel.css';
+
+/* example styles */
+@import './css/example_styles/example1.css';
