@@ -2,6 +2,8 @@
 
 /* actual plugin styles */
 @import './css/FerrisCarousel.css';
+@import './css/FerrisItem.css';
+@import './css/item_variations/ferris_item-3.css';
 
 /* example styles */
 @import './css/example_styles/example1.css';

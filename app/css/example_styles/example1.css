@@ -1,9 +1,16 @@
 /* full-width carousel with card-like elements and set dimensions for each element */
+:root {
+    --main-color: #df715a;
+    --secondary-color: #333;
+}
+
 body {
     margin: 0;
+    background: var(--main-color);
 }
 
 h1 {
+    color: var(--secondary-color);
     text-align: center;
 }
 
@@ -17,18 +24,17 @@ h1 {
     align-items: center;
     justify-content: center;
 
-
     &__icon {
         width: 80px;
         height: 80px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     &__text {
         font-family: Georgia, serif;
-        color: orange;
+        color: var(--main-color);
         width: 75%;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         line-height: 1.2;
         font-size: 26px;
         text-align: center;
