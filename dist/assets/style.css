@@ -434,9 +434,10 @@ template {
 }
 .ferris-item {
     position: absolute;
-    transition: -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 [data-ferris-item="0"] {
@@ -489,7 +490,7 @@ template {
 .ferris-dot:last-child {
     margin-right: 0
 }
-.ferris-dot.active {
+.ferris-dot--active {
     background: #ebebeb
 }/* full-width carousel with card-like elements and set dimensions for each element */
 
