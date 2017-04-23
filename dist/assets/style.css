@@ -425,22 +425,81 @@ template {
 [hidden] {
   display: none;
 }
-body {
-    color: rgba(128, 255, 0, .7)
+.ferris-items {
+    box-sizing: border-box;
+    position: relative
+}
+.ferris-items * {
+    box-sizing: border-box
+}
+.ferris-item {
+    position: absolute;
+    transition: -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-    @media (min-width: 768px) {
+[data-ferris-item="0"] {
+    -webkit-transform: translate(0) rotateZ(0) scale(1);
+            transform: translate(0) rotateZ(0) scale(1);
+}
+.ferris-items--3 {
+}
+.ferris-items--3 [data-ferris-item="1"] {
+    -webkit-transform: translate(100%, 33%) rotateZ(12deg) scale(0.5);
+            transform: translate(100%, 33%) rotateZ(12deg) scale(0.5)
+}
+.ferris-items--3 [data-ferris-item="2"] {
+    -webkit-transform: translate(-100%, 33%) rotateZ(-15deg) scale(0.66);
+            transform: translate(-100%, 33%) rotateZ(-15deg) scale(0.66)
+}
+.ferris-controls {
+}
+.ferris-controls__buttons,
+    .ferris-controls__dots {
+    text-align: center
+}
+.ferris-controls__buttons {
+    margin-bottom: 15px
+}.ferris-button {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 8px 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #333;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer
+}
+.ferris-button--prev {
+    margin-right: 20px
+}.ferris-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    margin-right: 8px;
+    cursor: pointer;
+    opacity: 0.7
+}
+.ferris-dot:last-child {
+    margin-right: 0
+}
+.ferris-dot.active {
+    background: #ebebeb
+}/* full-width carousel with card-like elements and set dimensions for each element */
 
-    body {
-        background: rgba(51, 51, 51, 0.8)
-    }
-    }
-/* full-width carousel with card-like elements and set dimensions for each element */
 body {
     margin: 0;
+    background: #df715a;
 }
 
 h1 {
+    color: #333;
     text-align: center;
 }
 
@@ -466,13 +525,13 @@ h1 {
 .carousel-item__icon {
     width: 80px;
     height: 80px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .carousel-item__text {
     font-family: Georgia, serif;
-    color: orange;
+    color: #df715a;
     width: 75%;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     line-height: 1.2;
     font-size: 26px;
     text-align: center;

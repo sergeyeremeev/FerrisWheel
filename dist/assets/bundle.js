@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "dist";
+/******/ 	__webpack_require__.p = "assets";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 2);
@@ -96,9 +96,11 @@ var jQuery = __webpack_require__(3);
         this.element = element;
         this.options = extendHelper({}, FerrisWheel.defaults, options);
 
+        this._container = null;
         this._containerWidth = null;
         this._containerHeight = null;
         this._itemWidth = null;
+        this._itemHeight = null;
         this._items = [];
         this._controls = {
             dots: [],
@@ -113,6 +115,8 @@ var jQuery = __webpack_require__(3);
     FerrisWheel.defaults = {
         navigation: true,
         navigationDots: true,
+        navigationButtons: true,
+        navigationArrows: true,
 
         fixedHeight: false,
 
@@ -126,13 +130,16 @@ var jQuery = __webpack_require__(3);
         // cache carousel items length to be used in loop
         itemsLength = this.element.children.length;
 
-        // store carousel items in this._items property
+        // store carousel items in this._items property, add class and data attr to each element
         for (i = 0; i < itemsLength; i++) {
             this._items.push(this.element.children[i]);
+            this._items[i].classList.add('ferris-item');
+            this._items[i].setAttribute('data-ferris-item', i);
         }
 
-        // get carousel items width and store in this._itemWidth property
+        // get carousel items width/height and store in this._itemWidth/this._itemHeight properties
         this._itemWidth = this._items[0].offsetWidth;
+        this._itemHeight = this._items[0].offsetHeight;
     };
 
     FerrisWheel.prototype.initialize = function () {
@@ -143,6 +150,10 @@ var jQuery = __webpack_require__(3);
         // wrap carousel items in wrapper div
         this.wrapItems();
 
+        // set container class based on the number of items and container dimensions
+        this.setContainerClass();
+        this.setContainerDimensions();
+
         // create carousel controls if navigation is set to true
         if (this.options.navigation) {
             this.createControls();
@@ -150,22 +161,54 @@ var jQuery = __webpack_require__(3);
     };
 
     FerrisWheel.prototype.wrapItems = function () {
+        var mainWrapper;
 
         // create carousel wrapper
-        this.mainWrapper = document.createElement('div');
-        this.mainWrapper.className = 'ferris-items';
+        mainWrapper = document.createElement('div');
+        mainWrapper.className = 'ferris-items';
 
         // wrap all items in created wrapper
         // TODO: add JS helper to substitute wrapAll()
-        $(this.element.children).wrapAll(this.mainWrapper);
+        $(this.element.children).wrapAll(mainWrapper);
+    };
+
+    FerrisWheel.prototype.setContainerClass = function () {
+        this._container = this.element.querySelector('.ferris-items');
+        this._container.className += ' ferris-items--' + this._items.length;
+    };
+
+    FerrisWheel.prototype.setContainerDimensions = function () {
+
+        // set container's height to 1.5 item height
+        var containerHeight = Math.round(this._itemHeight * 1.5);
+
+        // * Use paddings for centering to reserve transforms for actual animations
+
+        // set container's padding-top to half the space underneath the primary item
+        var containerPaddingTop = Math.round((containerHeight - this._itemHeight) / 3);
+
+        // center main item horizontally with padding-left
+        var containerPaddingLeft = Math.round((this._container.offsetWidth - this._itemWidth) / 2);
+
+        this._container.setAttribute('style', 'height: ' + containerHeight + 'px; '
+                                           + 'padding-top: ' + containerPaddingTop + 'px; '
+                                           + 'padding-left: ' + containerPaddingLeft + 'px; '
+        );
     };
 
     FerrisWheel.prototype.createControls = function () {
-        var controlsWrapper, dotsHTML;
+        var controlsWrapper, dotsHTML, buttonsHTML;
 
         // create carousel controls wrapper div
         controlsWrapper = document.createElement('div');
-        controlsWrapper.className = 'ferris-controls';
+        controlsWrapper.className = 'ferris_controls';
+
+        if (this.options.navigationButtons) {
+            buttonsHTML = this.createControlsButtons();
+
+            // append resulting div to controlsWrapper div
+            controlsWrapper.appendChild(buttonsHTML);
+        }
 
         if (this.options.navigationDots) {
             dotsHTML = this.createControlsDots();
@@ -198,6 +241,28 @@ var jQuery = __webpack_require__(3);
         }
 
         return dotsControls;
+    };
+
+    FerrisWheel.prototype.createControlsButtons = function () {
+        var buttonsControls, buttonNext, buttonPrev;
+
+        // create dots controls wrapper div
+        buttonsControls = document.createElement('div');
+        buttonsControls.className = 'ferris-controls__buttons';
+
+        // create next and prev buttons
+        buttonNext = document.createElement('span');
+        buttonNext.className = 'ferris-button ferris-button--next';
+        buttonNext.textContent = 'next';
+
+        buttonPrev = document.createElement('span');
+        buttonPrev.className = 'ferris-button ferris-button--prev';
+        buttonPrev.textContent = 'prev';
+
+        buttonsControls.appendChild(buttonPrev);
+        buttonsControls.appendChild(buttonNext);
+
+        return buttonsControls;
     };
 
     // jQuery plugin

@@ -1,0 +1,11 @@
+.ferris-controls {
+
+    &__buttons,
+    &__dots {
+        text-align: center;
+    }
+
+    &__buttons {
+        margin-bottom: 15px;
+    }
+}

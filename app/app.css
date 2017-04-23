@@ -1,9 +1,14 @@
 @import '~normalize.css';
 
 /* actual plugin styles */
-@import './css/FerrisCarousel.css';
-@import './css/FerrisItem.css';
-@import './css/item_variations/ferris_item-3.css';
+@import './css/ferris_carousel.css';
+
+@import './css/ferris_item.css';
+@import './css/ferris_variations/ferris_item-3.css';
+
+@import './css/ferris_controls.css';
+@import './css/ferris_controls/ferris_buttons.css';
+@import './css/ferris_controls/ferris_dots.css';
 
 /* example styles */
 @import './css/example_styles/example1.css';

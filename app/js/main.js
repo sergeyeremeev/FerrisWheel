@@ -43,6 +43,8 @@ var jQuery = require('jquery');
     FerrisWheel.defaults = {
         navigation: true,
         navigationDots: true,
+        navigationButtons: true,
+        navigationArrows: true,
 
         fixedHeight: false,
 
@@ -123,11 +125,18 @@ var jQuery = require('jquery');
     };
 
     FerrisWheel.prototype.createControls = function () {
-        var controlsWrapper, dotsHTML;
+        var controlsWrapper, dotsHTML, buttonsHTML;
 
         // create carousel controls wrapper div
         controlsWrapper = document.createElement('div');
-        controlsWrapper.className = 'ferris-controls';
+        controlsWrapper.className = 'ferris_controls';
+
+        if (this.options.navigationButtons) {
+            buttonsHTML = this.createControlsButtons();
+
+            // append resulting div to controlsWrapper div
+            controlsWrapper.appendChild(buttonsHTML);
+        }
 
         if (this.options.navigationDots) {
             dotsHTML = this.createControlsDots();
@@ -160,6 +169,28 @@ var jQuery = require('jquery');
         }
 
         return dotsControls;
+    };
+
+    FerrisWheel.prototype.createControlsButtons = function () {
+        var buttonsControls, buttonNext, buttonPrev;
+
+        // create dots controls wrapper div
+        buttonsControls = document.createElement('div');
+        buttonsControls.className = 'ferris-controls__buttons';
+
+        // create next and prev buttons
+        buttonNext = document.createElement('span');
+        buttonNext.className = 'ferris-button ferris-button--next';
+        buttonNext.textContent = 'next';
+
+        buttonPrev = document.createElement('span');
+        buttonPrev.className = 'ferris-button ferris-button--prev';
+        buttonPrev.textContent = 'prev';
+
+        buttonsControls.appendChild(buttonPrev);
+        buttonsControls.appendChild(buttonNext);
+
+        return buttonsControls;
     };
 
     // jQuery plugin
