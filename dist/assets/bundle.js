@@ -332,7 +332,7 @@ var jQuery = __webpack_require__(3);
     };
 
     FerrisWheel.prototype.goTo = function (item) {
-        var selected, total, steps, direction, animationSpeed, i;
+        var selected, total, steps, direction,/*animationSpeed, */ i;
 
         selected = +item.dataset.ferrisItem;
         total = this._items.length;
@@ -342,11 +342,11 @@ var jQuery = __webpack_require__(3);
         direction = this.setDirection(selected, total);
 
         // calculate and set duration of each rotation cycle to match the overall timing of the rotation
-        animationSpeed = (this.options.cycleDuration / steps / 1000).toFixed(1) + 's';
-
-        for (i = 0; i < this._itemsLength; i++) {
-            this._items[i].setAttribute('style', 'transition-duration: ' + animationSpeed);
-        }
+        // TODO: smooth animation over many steps
+        // animationSpeed = (this.options.cycleDuration / steps / 1000).toFixed(1) + 's';
+        // for (i = 0; i < this._itemsLength; i++) {
+        //     this._items[i].setAttribute('style', 'transition-duration: ' + animationSpeed);
+        // }
 
         for (i = 0; i < steps; i++) {
             this.spinWheel(direction);
@@ -389,7 +389,9 @@ var jQuery = __webpack_require__(3);
 (function ($) {
 
     $(function () {
-        $('.target-element').ferrisWheel();
+        $('.target-element').ferrisWheel({
+            navigationButtons: true
+        });
     });
 
 })(jQuery);

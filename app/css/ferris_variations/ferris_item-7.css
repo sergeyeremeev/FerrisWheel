@@ -1,0 +1,26 @@
+.ferris-items--7 {
+
+    & [data-ferris-item="1"] {
+        transform: translate(80%, -40%) rotateZ(-25deg) scale(0.4) perspective(1px);
+    }
+
+    & [data-ferris-item="2"] {
+        transform: translate(110%, 5%) rotateZ(5deg) scale(0.45) perspective(1px);
+    }
+
+    & [data-ferris-item="3"] {
+        transform: translate(80%, 45%) rotateZ(25deg) scale(0.35) perspective(1px);
+    }
+
+    & [data-ferris-item="4"] {
+        transform: translate(-80%, 45%) rotateZ(-25deg) scale(0.4) perspective(1px);
+    }
+
+    & [data-ferris-item="5"] {
+        transform: translate(-110%, 5%) rotateZ(-5deg) scale(0.45) perspective(1px);
+    }
+
+    & [data-ferris-item="6"] {
+        transform: translate(-80%, -40%) rotateZ(25deg) scale(0.35) perspective(1px);
+    }
+}

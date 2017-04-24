@@ -1,0 +1,14 @@
+.ferris-items--4 {
+
+    & [data-ferris-item="1"] {
+        transform: translate(100%, 5%) rotateZ(12deg) scale(0.75) perspective(1px);
+    }
+
+    & [data-ferris-item="2"] {
+        transform: translate(-100%, 40%) rotateZ(-15deg) scale(0.6) perspective(1px);
+    }
+
+    & [data-ferris-item="3"] {
+        transform: translate(-100%, -25%) rotateZ(10deg) scale(0.5) perspective(1px);
+    }
+}

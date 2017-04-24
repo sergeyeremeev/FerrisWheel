@@ -437,7 +437,9 @@ template {
     transition-property: -webkit-transform;
     transition-property: transform;
     transition-property: transform, -webkit-transform;
+    transition-duration: 0.4s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    will-change: transform;
 }
 
 [data-ferris-item="0"] {
@@ -447,12 +449,92 @@ template {
 .ferris-items--3 {
 }
 .ferris-items--3 [data-ferris-item="1"] {
-    -webkit-transform: translate(100%, 33%) rotateZ(12deg) scale(0.5);
-            transform: translate(100%, 33%) rotateZ(12deg) scale(0.5)
+    -webkit-transform: translate(100%, 33%) rotateZ(12deg) scale(0.5) perspective(1px);
+            transform: translate(100%, 33%) rotateZ(12deg) scale(0.5) perspective(1px)
 }
 .ferris-items--3 [data-ferris-item="2"] {
-    -webkit-transform: translate(-100%, 33%) rotateZ(-15deg) scale(0.66);
-            transform: translate(-100%, 33%) rotateZ(-15deg) scale(0.66)
+    -webkit-transform: translate(-100%, 33%) rotateZ(-15deg) scale(0.66) perspective(1px);
+            transform: translate(-100%, 33%) rotateZ(-15deg) scale(0.66) perspective(1px)
+}
+.ferris-items--4 {
+}
+.ferris-items--4 [data-ferris-item="1"] {
+    -webkit-transform: translate(100%, 5%) rotateZ(12deg) scale(0.75) perspective(1px);
+            transform: translate(100%, 5%) rotateZ(12deg) scale(0.75) perspective(1px)
+}
+.ferris-items--4 [data-ferris-item="2"] {
+    -webkit-transform: translate(-100%, 40%) rotateZ(-15deg) scale(0.6) perspective(1px);
+            transform: translate(-100%, 40%) rotateZ(-15deg) scale(0.6) perspective(1px)
+}
+.ferris-items--4 [data-ferris-item="3"] {
+    -webkit-transform: translate(-100%, -25%) rotateZ(10deg) scale(0.5) perspective(1px);
+            transform: translate(-100%, -25%) rotateZ(10deg) scale(0.5) perspective(1px)
+}
+.ferris-items--5 {
+}
+.ferris-items--5 [data-ferris-item="1"] {
+    -webkit-transform: translate(100%, -25%) rotateZ(-12deg) scale(0.6) perspective(1px);
+            transform: translate(100%, -25%) rotateZ(-12deg) scale(0.6) perspective(1px)
+}
+.ferris-items--5 [data-ferris-item="2"] {
+    -webkit-transform: translate(100%, 35%) rotateZ(10deg) scale(0.5) perspective(1px);
+            transform: translate(100%, 35%) rotateZ(10deg) scale(0.5) perspective(1px)
+}
+.ferris-items--5 [data-ferris-item="3"] {
+    -webkit-transform: translate(-100%, 40%) rotateZ(-15deg) scale(0.6) perspective(1px);
+            transform: translate(-100%, 40%) rotateZ(-15deg) scale(0.6) perspective(1px)
+}
+.ferris-items--5 [data-ferris-item="4"] {
+    -webkit-transform: translate(-100%, -25%) rotateZ(10deg) scale(0.5) perspective(1px);
+            transform: translate(-100%, -25%) rotateZ(10deg) scale(0.5) perspective(1px)
+}
+.ferris-items--6 {
+}
+.ferris-items--6 [data-ferris-item="1"] {
+    -webkit-transform: translate(80%, -40%) rotateZ(-25deg) scale(0.4) perspective(1px);
+            transform: translate(80%, -40%) rotateZ(-25deg) scale(0.4) perspective(1px)
+}
+.ferris-items--6 [data-ferris-item="2"] {
+    -webkit-transform: translate(110%, 5%) rotateZ(5deg) scale(0.45) perspective(1px);
+            transform: translate(110%, 5%) rotateZ(5deg) scale(0.45) perspective(1px)
+}
+.ferris-items--6 [data-ferris-item="3"] {
+    -webkit-transform: translate(80%, 45%) rotateZ(25deg) scale(0.35) perspective(1px);
+            transform: translate(80%, 45%) rotateZ(25deg) scale(0.35) perspective(1px)
+}
+.ferris-items--6 [data-ferris-item="4"] {
+    -webkit-transform: translate(-100%, 40%) rotateZ(-15deg) scale(0.6) perspective(1px);
+            transform: translate(-100%, 40%) rotateZ(-15deg) scale(0.6) perspective(1px)
+}
+.ferris-items--6 [data-ferris-item="5"] {
+    -webkit-transform: translate(-100%, -30%) rotateZ(12deg) scale(0.5) perspective(1px);
+            transform: translate(-100%, -30%) rotateZ(12deg) scale(0.5) perspective(1px)
+}
+.ferris-items--7 {
+}
+.ferris-items--7 [data-ferris-item="1"] {
+    -webkit-transform: translate(80%, -40%) rotateZ(-25deg) scale(0.4) perspective(1px);
+            transform: translate(80%, -40%) rotateZ(-25deg) scale(0.4) perspective(1px)
+}
+.ferris-items--7 [data-ferris-item="2"] {
+    -webkit-transform: translate(110%, 5%) rotateZ(5deg) scale(0.45) perspective(1px);
+            transform: translate(110%, 5%) rotateZ(5deg) scale(0.45) perspective(1px)
+}
+.ferris-items--7 [data-ferris-item="3"] {
+    -webkit-transform: translate(80%, 45%) rotateZ(25deg) scale(0.35) perspective(1px);
+            transform: translate(80%, 45%) rotateZ(25deg) scale(0.35) perspective(1px)
+}
+.ferris-items--7 [data-ferris-item="4"] {
+    -webkit-transform: translate(-80%, 45%) rotateZ(-25deg) scale(0.4) perspective(1px);
+            transform: translate(-80%, 45%) rotateZ(-25deg) scale(0.4) perspective(1px)
+}
+.ferris-items--7 [data-ferris-item="5"] {
+    -webkit-transform: translate(-110%, 5%) rotateZ(-5deg) scale(0.45) perspective(1px);
+            transform: translate(-110%, 5%) rotateZ(-5deg) scale(0.45) perspective(1px)
+}
+.ferris-items--7 [data-ferris-item="6"] {
+    -webkit-transform: translate(-80%, -40%) rotateZ(25deg) scale(0.35) perspective(1px);
+            transform: translate(-80%, -40%) rotateZ(25deg) scale(0.35) perspective(1px)
 }
 .ferris-controls {
 }
@@ -462,7 +544,8 @@ template {
 }
 .ferris-controls__buttons {
     margin-bottom: 15px
-}.ferris-button {
+}
+.ferris-button {
     display: inline-block;
     background: rgba(255, 255, 255, 0.4);
     padding: 8px 30px;
@@ -477,7 +560,8 @@ template {
 }
 .ferris-button--prev {
     margin-right: 20px
-}.ferris-dot {
+}
+.ferris-dot {
     display: inline-block;
     width: 12px;
     height: 12px;
@@ -492,7 +576,8 @@ template {
 }
 .ferris-dot--active {
     background: #ebebeb
-}/* full-width carousel with card-like elements and set dimensions for each element */
+}
+/* full-width carousel with card-like elements and set dimensions for each element */
 
 body {
     margin: 0;
